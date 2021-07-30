@@ -1,3 +1,5 @@
+import json
+
 class Mk48JSON:
 	def __init__(self):
 		pass

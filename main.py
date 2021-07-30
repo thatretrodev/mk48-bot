@@ -6,10 +6,6 @@ import secrets
 import random
 from mk48jsonapi import *
 
-tmp_words = open("/usr/share/dict/words", "r")
-words = tmp_words.read().split("\n")
-tmp_words.close()
-
 def on_message(ws, message):
 	try:
 		message_json = json.loads(message)
@@ -22,9 +18,6 @@ def on_message(ws, message):
 				current_object = objects[i]
 				if "name" in current_object:
 					print(current_object["name"] + " is at " + str(current_object["position"]["x"]) + ", " + str(current_object["position"]["y"]))
-				#print(objects[i])
-	#else:
-	#	print(message)
 
 def on_error(ws, error):
 	print(error)
@@ -36,7 +29,7 @@ def on_open(ws):
 	def run(*args):
 		mk48json = Mk48JSON()
 		ws.send(mk48json.Spawn("b0t_t3st", "pt34"))
-		#ws.send(mk48json.SendChat('This message was sent using a bug that hides the player name that sent the message. - thatretrodev'))
+
 		try:
 			while True:
 				time.sleep(5)
