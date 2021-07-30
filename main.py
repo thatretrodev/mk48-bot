@@ -6,6 +6,8 @@ import secrets
 import random
 from mk48jsonapi import *
 
+bot_username = "b0t_t3st"
+
 def on_message(ws, message):
 	try:
 		message_json = json.loads(message)
@@ -17,7 +19,8 @@ def on_message(ws, message):
 			for i in objects.keys():
 				current_object = objects[i]
 				if "name" in current_object:
-					print(current_object["name"] + " is at " + str(current_object["position"]["x"]) + ", " + str(current_object["position"]["y"]))
+					if "name" == bot_username:
+						print(current_object["name"] + " is at " + str(current_object["position"]["x"]) + ", " + str(current_object["position"]["y"]))
 
 def on_error(ws, error):
 	print(error)
@@ -28,7 +31,7 @@ def on_close(ws, close_status_code, close_msg):
 def on_open(ws):
 	def run(*args):
 		mk48json = Mk48JSON()
-		ws.send(mk48json.Spawn("b0t_t3st", "pt34"))
+		ws.send(mk48json.Spawn(bot_username, "pt34"))
 
 		try:
 			while True:
