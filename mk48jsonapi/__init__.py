@@ -24,3 +24,15 @@ class Mk48JSON:
 			}
 		}
 		return json.dumps(PayloadJSON)
+
+	def Aim(self, x, y):
+		PayloadJSON = {
+			"type": "aim",
+			"data": {
+				"target": {
+					"x": x,
+					"y": y
+				}
+			}
+		}
+		return json.dumps(PayloadJSON)
