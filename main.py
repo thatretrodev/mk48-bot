@@ -19,7 +19,7 @@ def on_message(ws, message):
 			for i in objects.keys():
 				current_object = objects[i]
 				if "name" in current_object:
-					if "name" == bot_username:
+					if "name" != bot_username:
 						print(current_object["name"] + " is at " + str(current_object["position"]["x"]) + ", " + str(current_object["position"]["y"]))
 
 def on_error(ws, error):
