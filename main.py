@@ -7,6 +7,7 @@ import random
 from mk48jsonapi import *
 
 bot_username = "b0t_t3st"
+mk48json = Mk48JSON()
 
 def on_message(ws, message):
 	try:
@@ -30,7 +31,6 @@ def on_close(ws, close_status_code, close_msg):
 
 def on_open(ws):
 	def run(*args):
-		mk48json = Mk48JSON()
 		ws.send(mk48json.Spawn(bot_username, "pt34"))
 
 		try:
