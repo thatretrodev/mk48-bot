@@ -36,3 +36,16 @@ class Mk48JSON:
 			}
 		}
 		return json.dumps(PayloadJSON)
+	
+	def Fire(self, index, x, y):
+		PayloadJSON = {
+			"type": "fire",
+			"data": {
+				"index": index,
+				"positionTarget": {
+					"x": x,
+					"y": y
+				}
+			}
+		}
+		return json.dumps(PayloadJSON)
